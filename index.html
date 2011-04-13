@@ -308,7 +308,17 @@ void main(void) {
   composit.rgb = mix(composit.rgb, vFogCol.rgb, vFogCol.a);//mix with fog
   
   vec4 finalColor = composit;
-    
+ 
+  if (uShaderDebug == 0.0) {finalColor = vec4(composit);}//diffuse
+  else if (uShaderDebug == 1.0) {finalColor = vec4(vDiffuse,1.0);}//diffuse
+  else if (uShaderDebug == 2.0) {finalColor = vec4(vAmbient,1.0);}//ambient
+  else if (uShaderDebug == 3.0) {finalColor = vec4(caustics.rgb,1.0);}//caustics
+  else if (uShaderDebug == 4.0) {finalColor = vec4(colorMap.rgb,1.0);}//color
+  else if (uShaderDebug == 5.0) {finalColor = vec4(vSpecular,1.0);}//specular
+  else if (uShaderDebug == 6.0) {finalColor = vec4(vFresnel,1.0);}//fresnel
+  else if (uShaderDebug == 7.0) {finalColor = vec4(vVertexNormal.xyz,1.0);}//normal
+  else if (uShaderDebug == 8.0) {finalColor = vec4(vec3(alphaMap),1.0);}//transparency
+ 
   gl_FragColor = finalColor;
 }
 </script><script id="vcolor-vs" type="x-shader/x-vertex"> 
@@ -846,7 +856,7 @@ $(document).ready(function(){
 </head> 
 <body> 
     <div id="statusBar"> 
-        Time: <span id="current-time"></span> | Frame rate: <span id="frameRate">NaN</span> | Created by <a href="http://aleksandarrodic.com">Aleksandar Rodic</a> using <a href="http://en.wikipedia.org/wiki/WebGL">WebGL</a>. Special thanks to <a href="http://learningwebgl.com/blog/">Giles Thomas</a> | debug: <a href="javascript:toggleDebug(\'debugCamera\')"><b>camera</b></a> | <a href="javascript:toggleDebug(\'debugShader\')"><b>shader</b></a> | <a href="javascript:toggleDebug(\'debugModel\')"><b>model</b></a> | <a href="javascript:toggleDebug(\'debugJellyfish\')"><b>jellyfish</b></a> | <a href="javascript:toggleDebug(\'debugParticle\')"><b>particle</b></a> | <a href="javascript:toggleDebug(\'debugLighting\')"><b>lighting</b></a> | <a href="javascript:toggleConsole()"><b>[+]</b></a> 
+        Time: <span id="current-time"></span> | Frame rate: <span id="frameRate">NaN</span> | Created by <a href="http://aleksandarrodic.com">Aleksandar Rodic</a> using <a href="http://en.wikipedia.org/wiki/WebGL">WebGL</a>. Special thanks to <a href="http://learningwebgl.com/blog/">Giles Thomas</a> | debug console: <a href="javascript:toggleConsole()"><b>[+]</b></a> 
     </div> 
     <div id="console"> 
         <div class="console-field" id="debugCamera"> 

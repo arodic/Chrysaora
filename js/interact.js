@@ -9,6 +9,8 @@ var txOffs = 0;
 var tyOffs = 0;
 var tzOffs = 0;
 
+var mouseXY = V3.$(0,0,0);
+
 function interact(){
   canvas.onmousedown = function ( ev ){
     drag  = 1;
@@ -27,6 +29,10 @@ function interact(){
     tzOffs = +ev.clientY/10 +ev.clientX/10;
   }
   canvas.onmousemove = function ( ev ){
+   mouseXY[0] = ev.clientX - docWidth/2;
+   mouseXY[1] = ev.clientY - docHeight/2;
+      //console.log(mouseXY[0]+','+mouseXY[1]);
+
    if ( drag == 0 ) return;
    if ( ev.altKey ) {
       localParam.camera.translate[2] = +ev.clientY/10 +ev.clientX/10 - tzOffs;}

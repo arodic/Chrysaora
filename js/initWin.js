@@ -43,5 +43,5 @@ function webGLStart() {
   interact();
   animate();
 	
-  setInterval(readDebugParam, 100);
+  toggleConsole();
 }

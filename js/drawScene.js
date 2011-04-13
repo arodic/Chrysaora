@@ -8,15 +8,21 @@ function drawScene() {
     
     mWorld = M4x4.makeTranslate3(0,0,0);  
     mView = M4x4.makeTranslate3(0,0,0);
+
+
     
     mView = M4x4.translate3(localParam.camera.translate[0],0,0,mView);
     mView = M4x4.translate3(0,-localParam.camera.translate[1],0,mView);
     mView = M4x4.translate3(0,0,localParam.camera.translate[2],mView);
     mView = M4x4.rotate(localParam.camera.rotate[0],V3.$(1,0,0),mView);
     mView = M4x4.rotate(localParam.camera.rotate[1],V3.$(0,1,0),mView);
-	
+
+    mView = M4x4.rotate(mouseXY[1]/500,V3.$(1,0,0),mView);
+    mView = M4x4.rotate(mouseXY[0]/500,V3.$(0,1,0),mView);
+
 	localParam.camera.eye = V3.$(-mViewInv[12],-mViewInv[13],-mViewInv[14]);
 
+    readDebugParam();
     simulate();
     
     drawSkybox();

@@ -66,7 +66,6 @@ function setParticleUniforms(){
 }
 
 function setDebugUniforms(){
-  if(zoaParam.objName){
     gl.uniform3f(currentProgram.lightPos, zoaParam.lightPos[0],zoaParam.lightPos[1],zoaParam.lightPos[2]);
     gl.uniform4f(currentProgram.lightCol, zoaParam.lightCol[0],zoaParam.lightCol[1],zoaParam.lightCol[2],zoaParam.lightCol[3]);
     gl.uniform4f(currentProgram.ambientCol, zoaParam.ambientCol[0],zoaParam.ambientCol[1],zoaParam.ambientCol[2],zoaParam.ambientCol[3]);
@@ -81,7 +80,6 @@ function setDebugUniforms(){
     gl.uniform1f(currentProgram.shaderDebug, zoaParam.shaderDebug);
     gl.uniform1f(currentProgram.near, localParam.camera.near);
     gl.uniform1f(currentProgram.far, localParam.camera.far);
-  }
 }
 
 function setMatrixUniforms(){

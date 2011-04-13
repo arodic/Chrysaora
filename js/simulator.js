@@ -51,7 +51,7 @@ function simulate(){
   for(var i=0; i < jellyfishTargets.count; i++){
 	
 	//SET TIME
-	if (jellyfishTargets[i].alive == 1) jellyfishTargets[i].time += zoaParam.jSpeed*4/(jellyfishTargets[i].scl+1)+0.07;
+	if (jellyfishTargets[i].alive == 1) jellyfishTargets[i].time += zoaParam.jSpeed*5/(jellyfishTargets[i].scl+1)+0.07;
     
 	//MOVE
     if (jellyfishTargets[i].alive == 1){

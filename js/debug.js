@@ -58,14 +58,14 @@ function zoaParam(){
   this.rAlpha = 0.3;
 
   //lighting
-  this.lightPos = [-1,1,-2];
-  this.lightCol = [1,0.8,0.9,1.1];
+  this.lightPos = [-1,2,-1];
+  this.lightCol = [0.8,0.8,0.4,1];
   this.specCol = [0.3,0.4,0.6,0.5];
   this.lightRadius = 800;
   this.lightSpecPower = 3;
-  this.ambientCol = [0.7,0.3,0.2,0.6];
-  this.fogTopCol = [0.7,0.8,1,0.7];
-  this.fogBottomCol = [0.1,0.2,0.25,0.3];
+  this.ambientCol = [0.7,0.4,0.4,1];
+  this.fogTopCol = [0.7,0.8,1.1,0.7];
+  this.fogBottomCol = [0.15,0.15,0.2,0.3];
   this.fogDist = 200;
   this.lightTime = 0;
   this.lightBlend = [1,-1,0];
